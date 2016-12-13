@@ -26,77 +26,40 @@
         <h4>42 Coffee Cups Test Assignment</h4>
     </div>
     <div class="column_left block">
-        <p>Yuriy</p>
-        <p>Lyashko</p>
-        <p>1986/04/10</p>
+        <p>{{ t.name }}</p>
+        <p>{{ t.last_name }}</p>
+        <p>{{ t.date_of_birth }}</p>
         <p>Bio:</p>
-        <p>
-            Personal Qualities
-            <br> - desire to develop,
-            <br> - quickly learn new things,
-            <br> - initiative,
-            <br> - responsible
-
+        <p> Personal Qualities
+            {% for pq in t.bio.Personal_Qualities %}
+                <br>{{ pq }}
+            {% endfor %}
         </p>
-        <p>
-            Education
-            <br>
-                2016
-                <br>IT Education Academy courses:
-                <br>Python base
-                <br>Python advanced
-                <br>Python/Django
-            <br>
-                2003-2009
-                <br>National Aviation University,
-                <br>Institute of Electronics and Control Systems
+        <p> Education
+            {% for ed in t.bio.Education %}
+                <br>{{ ed }}
+            {% endfor %}
         </p>
-        <p>
-            Experience
-            <br>
-                04.2009 – present time
-                Chief Power Engineer
-                MHP S.A.
-                Organization of of exploitation and improvement of technical equipment:
-                <br> - organization of the working process (5 subordinates)
-                <br> - of new products monitoring;
-                <br> - analysis of the possibility of installing on a specific object;
-                <br> - calculation of efficiency, payback;
-                <br> - rationale for the use of new items to the customer;
-                <br> - choice of manufacturer, tender, purchase, delivery;
-                <br> - organization of installation and operation of equipment,
-                <br> - participation in projects,
-                <br>and etc.
-            <br>
-                2008 – 04.2009
-                Electrical Engineer
-                «Electropartner»
-                Development of the equipment in accordance with the technical assignment:
-                <br> - receipt of technical specifications from the customer;
-                <br> - choice of components,
-                <br> - designing of hardware;
-                <br> - issuance of technical specifications for the installation.
+        <p> Experience
+            {% for ex in t.bio.Experience %}
+                <br>{{ ex }}
+            {% endfor %}
         </p>
     </div>
 
     <div class="column_right block">
         <p>Contacts</p>
-        <p>Email: yu.i.lyashko@gmail.com</p>
-        <p>Jabber: yuriylyashko@42cc.co</p>
-        <p>Skype: </p>
-        <p>Other contacts:</p>
-        <p>
-            Phone
-            <br>066-709-64-72
+        <p>Email: {{t.email}}</p>
+        <p>Jabber: {{t.jabber}}</p>
+        <p>Skype: {{t.skype}}</p>
+        <p>Other contacts:
+            <p> Phone
+                {{t.other_contacts.Phone}}
+            </p>
+            <p> Linkedin
+                {{t.other_contacts.Linkedin}}
+            </p>
         </p>
-        <p>
-            Linkedin
-            <br>https://ua.linkedin.com/in/юрий-ляшко-27b846119
-        </p>
-        <p>
-
-        </p>
-
     </div>
 
 
