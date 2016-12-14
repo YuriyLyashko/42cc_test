@@ -2,21 +2,21 @@ from django.db import models
 
 # Create your models here.
 class Contact(models.Model):
-    name = models.CharField(max_length = 200)
-    last_name = models.CharField(max_length = 200)
+    name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
     date_of_birth = models.DateField()
-    bio = models.CharField(max_length = 250)
+    bio = models.TextField()
     email = models.EmailField()
-    jabber = models.CharField(max_length = 200)
-    skype = models.CharField(max_length = 200)
-    other_contacts = models.CharField(max_length = 250)
+    jabber = models.CharField(max_length=200)
+    skype = models.CharField(max_length=200)
+    other_contacts = models.CharField(max_length=250)
 
-
-    def __init__(self):
-        self.name = 'Yuriy'
-        self.last_name = 'Lyashko'
-        self.date_of_birth = '1986/04/10'
-        self.bio = {'Personal_Qualities':
+    @staticmethod
+    def get_contact_data():
+        name = 'Yuriy'
+        last_name = 'Lyashko'
+        date_of_birth = '1986-04-10'
+        bio = {'Personal_Qualities':
                         ['- desire to develop,', '- quickly learn new things,', '- initiative,', '- responsible'],
                     'Education':
                         ['2016', 'IT Education Academy courses:', 'Python base', 'Python advanced', 'Python/Django',
@@ -38,8 +38,9 @@ class Contact(models.Model):
                                   '- choice of components,',
                                   '- designing of hardware;',
                                   '- issuance of technical specifications for the installation.']
-                    }
-        self.email = 'yu.i.lyashko@gmail.com'
-        self.jabber = 'yuriylyashko@42cc.co'
-        self.skype = ''
-        self.other_contacts = {'Phone': '066-709-64-72','Linkedin': 'https://ua.linkedin.com/in/юрий-ляшко-27b846119'}
+               }
+        email = 'yu.i.lyashko@gmail.com'
+        jabber = 'yuriylyashko@42cc.co'
+        skype = ''
+        other_contacts = {'Phone': '066-709-64-72','Linkedin': 'https://ua.linkedin.com/in/юрий-ляшко-27b846119'}
+        return name, last_name, date_of_birth, bio, email, jabber, skype, other_contacts
